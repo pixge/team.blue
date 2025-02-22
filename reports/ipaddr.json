@@ -1,0 +1,44 @@
+{
+    "130.75.64.33": {
+        "ip": "130.75.64.33",
+        "num_of_requests": 5,
+        "perc_num_of_requests": "35.71",
+        "bytes_sent": 15500,
+        "perc_bytes_sent": "36.52"
+    },
+    "210.55.99.12": {
+        "ip": "210.55.99.12",
+        "num_of_requests": 4,
+        "perc_num_of_requests": "28.57",
+        "bytes_sent": 11600,
+        "perc_bytes_sent": "27.33"
+    },
+    "150.25.36.78": {
+        "ip": "150.25.36.78",
+        "num_of_requests": 2,
+        "perc_num_of_requests": "14.29",
+        "bytes_sent": 6600,
+        "perc_bytes_sent": "15.55"
+    },
+    "192.168.1.1": {
+        "ip": "192.168.1.1",
+        "num_of_requests": 1,
+        "perc_num_of_requests": "7.14",
+        "bytes_sent": 3042,
+        "perc_bytes_sent": "7.17"
+    },
+    "172.16.0.5": {
+        "ip": "172.16.0.5",
+        "num_of_requests": 1,
+        "perc_num_of_requests": "7.14",
+        "bytes_sent": 3500,
+        "perc_bytes_sent": "8.25"
+    },
+    "10.0.0.2": {
+        "ip": "10.0.0.2",
+        "num_of_requests": 1,
+        "perc_num_of_requests": "7.14",
+        "bytes_sent": 2200,
+        "perc_bytes_sent": "5.18"
+    }
+}
