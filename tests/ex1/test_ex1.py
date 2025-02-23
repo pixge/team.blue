@@ -50,6 +50,7 @@ class TestEx1(unittest.TestCase):
         data = self.print_and_parse(self.collector)
         self.assert_ip_equals(data.get("1"), 4, 50, 0, 0)
         self.assert_ip_equals(data.get("2"), 1, 12.5, 50, 50)
+        self.assert_ip_equals(data.get("3"), 1, 12.5, 0, 0)
         self.assert_ip_equals(data.get("4"), 2, 25, 50, 50)
         
         
