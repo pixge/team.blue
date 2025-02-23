@@ -1,40 +1,40 @@
 import unittest
 import os 
-import csv
-
-from src.ex1 import ex1
+from src.ex1 import collector, writer
 
 class TestEx1(unittest.TestCase): 
             
     def setUp(self):
-        self.collector = ex1.Collector() 
+        self.collector = collector.Collector() 
         self.outfile = "test.output"
     
     def tearDown(self):
         os.remove(self.outfile)
         # pass
+        
+    def print_and_parse(self, collector: collector.Collector):
+        report = writer.ReportSortedCSV(collector.lines)
+        report.print(self.outfile)
+        return self.csv_to_dict()
                 
     def test_one_line(self): 
         self.collector.add(TestEx1.create_line("1", 10))
-        self.collector.print(self.outfile)
         
-        data = self.csv_to_dict()
+        data = self.print_and_parse(self.collector)
         self.assert_ip_equals(data.get("1"), 1, 100, 10, 100)
    
     def test_two_line(self): 
         self.collector.add(TestEx1.create_line("1", 10))
         self.collector.add(TestEx1.create_line("1", 60))
-        self.collector.print(self.outfile)
-        
-        data = self.csv_to_dict()
+       
+        data = self.print_and_parse(self.collector)
         self.assert_ip_equals(data.get("1"), 2, 100, 70, 100)
    
     def test_exclude_stat_line(self): 
         self.collector.add(TestEx1.create_line("1", 10))
         self.collector.add(TestEx1.create_line("1", 10, False))
-        self.collector.print(self.outfile)
-        
-        data = self.csv_to_dict()
+
+        data = self.print_and_parse(self.collector)
         self.assert_ip_equals(data.get("1"), 1, 100, 10, 100)
    
     def test_perc_stat_line(self): 
@@ -46,9 +46,8 @@ class TestEx1(unittest.TestCase):
         self.collector.add(TestEx1.create_line("3", 0))
         self.collector.add(TestEx1.create_line("4", 25))
         self.collector.add(TestEx1.create_line("4", 25))
-        self.collector.print(self.outfile)
         
-        data = self.csv_to_dict()
+        data = self.print_and_parse(self.collector)
         self.assert_ip_equals(data.get("1"), 4, 50, 0, 0)
         self.assert_ip_equals(data.get("2"), 1, 12.5, 50, 50)
         self.assert_ip_equals(data.get("4"), 2, 25, 50, 50)
@@ -71,10 +70,9 @@ class TestEx1(unittest.TestCase):
         self.collector.add(TestEx1.create_line("4", 25))
         self.collector.add(TestEx1.create_line("4", 25))
         self.collector.add(TestEx1.create_line("4", 25))
-        self.collector.print(self.outfile)
-        
-        data = self.csv_to_dict()
 
+        data = self.print_and_parse(self.collector)
+        
         max_num_of_request = None
         for ip in data.values(): 
             num_of_requests = ip.get("num_of_requests")
