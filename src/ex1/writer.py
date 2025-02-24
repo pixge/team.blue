@@ -35,7 +35,7 @@ class ReportSorted(ABC):
     
 class ReportSortedCSV(ReportSorted):
     
-    def print2(self, file_path: str):
+    def print(self, file_path: str):
         with open(file_path, "w") as file:
             writer = csv.writer(file, delimiter=";")
 
