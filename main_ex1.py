@@ -10,10 +10,11 @@ file = path + "logfiles/ipaddr.csv"
 collector =  collector.Collector()
 collector.load(file)
 
+
+
+
+
 os.makedirs(path + "reports", exist_ok=True)
-
-
-
 
 def print_report(file_path: str, clazz: Type[writer.ReportSorted]):
     report = clazz(collector.lines)
