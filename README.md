@@ -41,5 +41,9 @@ Running test:
 ```bash 
 python3 -m unittest discover tests/ex2
 ```
-# team.blue
-# team.blue
+
+# Tests
+
+```bash 
+python3 -m unittest discover .
+```
