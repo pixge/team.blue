@@ -2,8 +2,9 @@
 from src.ex1.collector import Line
 
 import csv 
+from abc import ABC, abstractmethod
 
-class ReportSorted: 
+class ReportSorted(ABC): 
     
     def __init__(self, lines: list[Line]):
        self._lines = lines
@@ -24,7 +25,7 @@ class ReportSorted:
         return f"{(a / b) * 100:.2f}"
 
         
-    
+    @abstractmethod
     def print(self, file_path: str): 
         pass
             
@@ -34,7 +35,7 @@ class ReportSorted:
     
 class ReportSortedCSV(ReportSorted):
     
-    def print(self, file_path: str):
+    def print2(self, file_path: str):
         with open(file_path, "w") as file:
             writer = csv.writer(file, delimiter=";")
 
