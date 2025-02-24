@@ -3,7 +3,7 @@
 class Constants:
 
     class Status:
-        OK = "OK"
+        OK = "200"
 
 class Total: 
     def __init__(self):

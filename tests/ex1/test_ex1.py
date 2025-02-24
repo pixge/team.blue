@@ -107,5 +107,5 @@ class TestEx1(unittest.TestCase):
         
     @staticmethod
     def create_line(ip, bytes, status = True):
-        return "1234; "+ str(bytes) +";"+ ("OK" if status else "ERRORR")  +";"+ ip
+        return "1234; "+ str(bytes) +";"+ ("200" if status else "500")  +";"+ ip
         
