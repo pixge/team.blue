@@ -23,8 +23,6 @@ print_report(path + "reports/ipaddr.csv", writer.ReportSortedCSV)
 print_report(path + "reports/ipaddr.json", writer.ReportSortedJSON)
 
 
-# collector.print(path + "reports/ipaddr.csv" )
-# collector.print(path + "reports/ipaddr.json", ex1.Constants.Output.JSON)
 
 
 
